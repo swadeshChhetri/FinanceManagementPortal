@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${project.project_id}</td>
-        <td>${project.employee_id || "N/A"}</td>
         <td>${project.project_name}</td>
         <td>${project.project_budget.toFixed(2)}</td>
         <td>${project.start_date || "N/A"}</td>
