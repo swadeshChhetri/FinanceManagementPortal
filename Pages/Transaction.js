@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const fetchTransactions = async () => {
     try {
-      const response = await fetch("/Transaction.json"); // Update the path
+      const response = await fetch("/FinanceManagementPortal/Transaction.json"); // Update the path
       if (!response.ok) throw new Error("Failed to fetch transaction data");
       const data = await response.json();
       console.log("Fetched Transactions:", data);
