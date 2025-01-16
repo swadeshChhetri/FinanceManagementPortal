@@ -406,6 +406,7 @@ border: 1px solid var(--base-color);
   left: 0;
   bottom: 0;
   min-width: 150px;
+  height: 100vh;
   padding: 1rem;
   color: var(--base-color);
   overflow: hidden;
@@ -860,12 +861,6 @@ td, th {
     margin: 1rem 0;
 }
 
-@media (max-width: 730px){
-  .header--wrapper {
-    width: 777px;
-  }
-}
-
 @media (max-width: 700px) {
   #open-sidebar-button,
   #close-sidebar-button {
@@ -900,9 +895,6 @@ td, th {
 
 
 @media (max-width: 480px) {
-  header--wrapper {
-    width: 477px;
-}
   .sidebar {
     display: none !important;
   }
@@ -945,7 +937,7 @@ section {
 }
 
 th, td {
-  font-size: 2.1vh;
+  font-size: 1.2vh;
 }
 .profile-sidebar {
   display: none;
