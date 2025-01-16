@@ -406,7 +406,6 @@ border: 1px solid var(--base-color);
   left: 0;
   bottom: 0;
   min-width: 150px;
-  height: 100vh;
   padding: 1rem;
   color: var(--base-color);
   overflow: hidden;
@@ -859,6 +858,12 @@ td, th {
    display: flex;
     gap: 1rem;
     margin: 1rem 0;
+}
+
+@media (max-width: 730px){
+  .header--wrapper {
+    width: 777px;
+  }
 }
 
 @media (max-width: 700px) {
