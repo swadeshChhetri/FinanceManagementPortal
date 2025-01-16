@@ -513,6 +513,7 @@ border: 1px solid var(--base-color);
 /* main body section */
 .main--content{
   position: relative;
+  padding: 1rem;
   background: var(--background-color);
   width: 100%;
 }
