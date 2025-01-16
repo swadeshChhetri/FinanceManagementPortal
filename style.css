@@ -407,7 +407,7 @@ border: 1px solid var(--base-color);
   bottom: 0;
   min-width: 150px;
   height: 100vh;
-  padding: 1rem;
+  padding: 0.5rem;
   color: var(--base-color);
   overflow: hidden;
   transition: all 0.5s linear;
@@ -515,7 +515,6 @@ border: 1px solid var(--base-color);
   position: relative;
   background: var(--background-color);
   width: 100%;
-  padding: 0.2rem 0.8rem;
 }
 
 .main--title {
@@ -862,6 +861,10 @@ td, th {
 }
 
 @media (max-width: 700px) {
+
+}
+@media (max-width: 480px) {
+
   #open-sidebar-button,
   #close-sidebar-button {
     display: block;
@@ -891,10 +894,8 @@ td, th {
     color: white;
     padding: 1rem;
   }
-}
 
 
-@media (max-width: 480px) {
   .sidebar {
     display: none !important;
   }
