@@ -902,32 +902,40 @@ td, th {
   ul {
     list-style: none;
   }
+
   #messageBox {
     display: none;
   }
+
   .alerts-container {
     margin-left: 0;
     width: 100%;
    
   }
+
   span {
     font-size: 10px;
   }
+
   .card--header {
     align-items: normal; 
     gap: 0;
 }
+
 .card--icon {
   font-size: 3vh; 
   margin-top: 0;
 }
+
 section {
   display: block;
 }
+
 .tabular--wrapper {
-  width: 100%;
-  margin-top: 1rem;
+    width: 100%;
+    margin-top: 1rem;
 }
+
 th, td {
   font-size: 1.2vh;
 }
