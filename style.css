@@ -895,17 +895,18 @@ td, th {
 
 
 @media (max-width: 480px) {
-  .example-class {
-    font-size: 1rem;
-  }
   .sidebar {
     display: none !important;
+  }
+
+  ul {
+    list-style: none;
   }
   #messageBox {
     display: none;
   }
   .alerts-container {
-  
+    margin-left: 0;
     width: 100%;
    
   }
@@ -925,6 +926,7 @@ section {
 }
 .tabular--wrapper {
   width: 100%;
+  margin-top: 1rem;
 }
 th, td {
   font-size: 1.2vh;
@@ -964,5 +966,9 @@ form input, form button, form a {
   gap: 1rem;
   margin-bottom: 1rem;
 }
+
+}
+
+@media screen and (orientation: landscape) {
 
 }
