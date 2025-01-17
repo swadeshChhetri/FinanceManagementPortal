@@ -1,9 +1,8 @@
 document.addEventListener("DOMContentLoaded", () => {
-
   // Fetch Projects Data
   const fetchProjects = async () => {
     try {
-      const response = await fetch('/FinanceManagementPortal/Project.json'); // Update with actual path or API endpoint
+      const response = await fetch("/FinanceManagementPortal/Project.json"); // Update with actual path or API endpoint
       if (!response.ok) throw new Error("Failed to fetch project data");
       const data = await response.json();
       console.log("Fetched Projects:", data);
@@ -19,14 +18,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const tableBody = document.getElementById("projects-table-body"); // Ensure this element exists
     tableBody.innerHTML = ""; // Clear any existing rows
 
-    projects.forEach(project => {
+    projects.forEach((project) => {
       const row = document.createElement("tr");
       row.innerHTML = `
         <td>${project.project_id}</td>
         <td>${project.project_name}</td>
         <td>${project.project_budget.toFixed(2)}</td>
         <td>${project.start_date || "N/A"}</td>
-        <td>${project.end_date === "0000-00-00" || !project.end_date ? "N/A" : project.end_date}</td>
+        <td>${
+          project.end_date === "0000-00-00" || !project.end_date
+            ? "N/A"
+            : project.end_date
+        }</td>
         <td>${project.notes}</td>
         <td>${project.status}</td>
       `;
@@ -34,13 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-    // Initialize Page
-    (async () => {
-      const projects = await fetchProjects();
-      if (projects) renderProjects(projects);
-    })();
-
-
+  // Initialize Page
+  (async () => {
+    const projects = await fetchProjects();
+    if (projects) renderProjects(projects);
+  })();
 
   // Bulk Upload
   document.getElementById("upload-button").addEventListener("click", () => {

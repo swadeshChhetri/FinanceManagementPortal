@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   await initApp();
   mobileMenu();
   highlightActiveNav();
@@ -6,102 +6,103 @@ document.addEventListener('DOMContentLoaded', async () => {
   setupDropdown();
   setupModal();
   setupSectionToggle();
-  });
+});
 
-  function mobileMenu() {
-    const openButton = document.getElementById("open-sidebar-button");
-    const navbar = document.getElementById("navbar");
-    const closed = document.getElementById("close-sidebar-button");
-    
-    if (openButton && navbar && closed) {
-      openButton.addEventListener("click", () => {
-        navbar.classList.add("show");
-      });
-  
-      closed.addEventListener("click", () => {
-        navbar.classList.remove("show");
-      });
-    } else {
-      console.warn("Sidebar menu elements are missing on this page.");
-    }
+function mobileMenu() {
+  const openButton = document.getElementById("open-sidebar-button");
+  const navbar = document.getElementById("navbar");
+  const closed = document.getElementById("close-sidebar-button");
+
+  if (openButton && navbar && closed) {
+    openButton.addEventListener("click", () => {
+      navbar.classList.add("show");
+    });
+
+    closed.addEventListener("click", () => {
+      navbar.classList.remove("show");
+    });
+  } else {
+    console.warn("Sidebar menu elements are missing on this page.");
   }
+}
 
 // Initialize the application by loading header and sidebar components
 const initApp = async () => {
   try {
-  
-    const headerResponse = await fetch('/FinanceManagementPortal/components/header.html');
-    if (!headerResponse.ok) throw new Error('Failed to load header');
+    const headerResponse = await fetch("/components/header.html");
+    if (!headerResponse.ok) throw new Error("Failed to load header");
     const headerData = await headerResponse.text();
-    document.getElementById('header').innerHTML = headerData;
+    document.getElementById("header").innerHTML = headerData;
 
-    const sidebarResponse = await fetch('/FinanceManagementPortal/components/sidebar.html');
-    if (!sidebarResponse.ok) throw new Error('Failed to load sidebar');
+    const sidebarResponse = await fetch("/components/sidebar.html");
+    if (!sidebarResponse.ok) throw new Error("Failed to load sidebar");
     const sidebarData = await sidebarResponse.text();
-    document.getElementById('sidebar').innerHTML = sidebarData;
+    document.getElementById("sidebar").innerHTML = sidebarData;
   } catch (error) {
-    console.error('Error loading components:', error);
+    console.error("Error loading components:", error);
   }
 };
 
 // Function to highlight the active navigation link
 function highlightActiveNav() {
   const activePage = window.location.pathname;
-  document.querySelectorAll('nav a').forEach(link => {
+  document.querySelectorAll("nav a").forEach((link) => {
     if (link.href.includes(`${activePage}`)) {
-      link.classList.add('active');
+      link.classList.add("active");
     }
   });
 }
 
 // Initialize dark mode toggle functionality
 function initializeDarkMode() {
-  const themeSwitch = document.getElementById('theme-switch');
+  const themeSwitch = document.getElementById("theme-switch");
   if (!themeSwitch) return;
 
   const enableDarkMode = () => {
-    document.body.classList.add('darkmode');
-    localStorage.setItem('darkmode', 'active');
+    document.body.classList.add("darkmode");
+    localStorage.setItem("darkmode", "active");
   };
   const disableDarkMode = () => {
-    document.body.classList.remove('darkmode');
-    localStorage.setItem('darkmode', 'inactive');
+    document.body.classList.remove("darkmode");
+    localStorage.setItem("darkmode", "inactive");
   };
 
-  if (localStorage.getItem('darkmode') === 'active') enableDarkMode();
+  if (localStorage.getItem("darkmode") === "active") enableDarkMode();
 
-  themeSwitch.addEventListener('click', () => {
-    localStorage.getItem('darkmode') === 'active' ? disableDarkMode() : enableDarkMode();
+  themeSwitch.addEventListener("click", () => {
+    localStorage.getItem("darkmode") === "active"
+      ? disableDarkMode()
+      : enableDarkMode();
   });
 }
 
 // Setup dropdown menu toggle
 function setupDropdown() {
-  const dropdownBtn = document.querySelector('.dropdown-btn');
+  const dropdownBtn = document.querySelector(".dropdown-btn");
   if (!dropdownBtn) return;
 
-  const overlay1 = document.getElementById('overlay1');
-  dropdownBtn.addEventListener('click', () => {
-    document.querySelector('.dropdown-content').classList.toggle('show');
-    if (overlay1) overlay1.style.display = 'block';
+  const overlay1 = document.getElementById("overlay1");
+  dropdownBtn.addEventListener("click", () => {
+    document.querySelector(".dropdown-content").classList.toggle("show");
+    if (overlay1) overlay1.style.display = "block";
   });
 }
 
 // Setup modal functionality for "Add Transaction"
 function setupModal() {
-  const overlay = document.getElementById('overlay');
-  const addTransactionBtn = document.getElementById('addTransactionBtn');
-  const addTransactionModal = document.getElementById('addTransactionModal');
+  const overlay = document.getElementById("overlay");
+  const addTransactionBtn = document.getElementById("addTransactionBtn");
+  const addTransactionModal = document.getElementById("addTransactionModal");
   if (!overlay || !addTransactionBtn || !addTransactionModal) return;
 
-  addTransactionBtn.addEventListener('click', () => {
-    addTransactionModal.classList.add('active');
-    overlay.style.display = 'block';
+  addTransactionBtn.addEventListener("click", () => {
+    addTransactionModal.classList.add("active");
+    overlay.style.display = "block";
   });
 
-  overlay.addEventListener('click', () => {
-    addTransactionModal.classList.remove('active');
-    overlay.style.display = 'none';
+  overlay.addEventListener("click", () => {
+    addTransactionModal.classList.remove("active");
+    overlay.style.display = "none";
   });
 }
 
@@ -125,7 +126,7 @@ function setupSectionToggle() {
 
 const fetchTransactions = async () => {
   try {
-    const response = await fetch('/FinanceManagementPortal/Transaction.json'); // Update the path
+    const response = await fetch("/Transaction.json"); // Update the path
     if (!response.ok) throw new Error("Failed to fetch transaction data");
     const data = await response.json();
     console.log("Fetched Transactions:", data);
@@ -140,7 +141,7 @@ const renderTransactions = (transactions) => {
   const tableBody = document.getElementById("transactions-table-body"); // Ensure this element exists
   tableBody.innerHTML = ""; // Clear existing rows
 
-  transactions.forEach(transaction => {
+  transactions.forEach((transaction) => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${transaction.transaction_id}</td>
