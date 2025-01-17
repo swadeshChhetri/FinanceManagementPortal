@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Fetch Projects Data
   const fetchProjects = async () => {
     try {
-      const response = await fetch("/FinanceManagementPortal/Project.json"); // Update with actual path or API endpoint
+      const response = await fetch("/Project.json"); // Update with actual path or API endpoint
       if (!response.ok) throw new Error("Failed to fetch project data");
       const data = await response.json();
       console.log("Fetched Projects:", data);

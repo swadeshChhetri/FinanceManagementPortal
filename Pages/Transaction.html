@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <base href="/FinanceManagementPortal/">
+    <base href="/" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transaction Management</title>
@@ -10,7 +10,6 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <style> .main--content {width: 100% ;}</style>
   </head>
   <body>
     <header id="header" class="header--wrapper"></header>
@@ -37,11 +36,10 @@
       </ul>
     </nav>
 
-    <section>
+    <section class="container">
       <aside id="sidebar" class="sidebar"></aside>
-      <main class="main--content">
+      <main class="main-content">
         <div id="messageBox" class="alert" style="display: none"></div>
-        <h1 class="header">Transaction Management</h1>
         <section>
           <div
             style="width: 100%; display: flex; justify-content: space-between"
@@ -121,39 +119,41 @@
           </div>
         </section>
 
-        <!-- <div style="display: flex; gap: 1rem; margin: 1rem 0%"> -->
-          <div>
-            <div class="filters">
-              <form method="GET" action="">
-                <input
-                  type="text"
-                  name="search"
-                  placeholder="Search by description or category"
-                  value=""
-                />
-                <input type="date" name="start-date" value="" />
-                <input type="date" name="end-date" value="" />
+        <div style="display: flex; gap: 1rem; margin: 1rem 0%">
+        <div>
+          <div class="filters">
+            <form method="GET" action="">
+              <input
+                type="text"
+                name="search"
+                placeholder="Search by description or category"
+                value=""
+              />
+              <input type="date" name="start-date" value="" />
+              <input type="date" name="end-date" value="" />
+              <div>
                 <button id="searchButton" type="submit">Search</button>
                 <button
                   style="font-size: 14px"
-                  href="Transaction.html"
+                  href="Deployment.html"
                   id="removeFiltersButton"
                   type="button"
-                  >Remove</button>
-                
-              </form>
-            </div>
+                >
+                  Remove
+                </button>
+              </div>
+            </form>
           </div>
-          <!-- <div> -->
-            <div class="exportDatasFile">
-            <button class="btn" onclick="exportData('pdf')">
-              <i class="fa-solid fa-file-export"></i>Export as PDF
-            </button>
-            <button class="btn" onclick="exportData('excel')">
-              <i class="fa-solid fa-file-export"></i>Export as Excel
-            </button>
-          </div>
-          </div>
+        </div>
+        </div>
+
+        <div class="exportDatasFile">
+          <button class="btn" onclick="exportData('pdf')">
+            <i class="fa-solid fa-file-export"></i>Export as PDF
+          </button>
+          <button class="btn" onclick="exportData('excel')">
+            <i class="fa-solid fa-file-export"></i>Export as Excel
+          </button>
         </div>
 
         <section class="Transaction">
