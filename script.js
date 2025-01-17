@@ -29,7 +29,7 @@ function mobileMenu() {
 // Initialize the application by loading header and sidebar components
 const initApp = async () => {
   try {
-    const headerResponse = await fetch("/components/header.html");
+    const headerResponse = await fetch("/FinanceManagementPortal/components/header.html");
     if (!headerResponse.ok) throw new Error("Failed to load header");
     const headerData = await headerResponse.text();
     document.getElementById("header").innerHTML = headerData;
