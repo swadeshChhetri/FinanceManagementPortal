@@ -34,7 +34,7 @@ const initApp = async () => {
     const headerData = await headerResponse.text();
     document.getElementById("header").innerHTML = headerData;
 
-    const sidebarResponse = await fetch("/components/sidebar.html");
+    const sidebarResponse = await fetch("/FinanceManagementPortal/components/sidebar.html");
     if (!sidebarResponse.ok) throw new Error("Failed to load sidebar");
     const sidebarData = await sidebarResponse.text();
     document.getElementById("sidebar").innerHTML = sidebarData;
@@ -126,7 +126,7 @@ function setupSectionToggle() {
 
 const fetchTransactions = async () => {
   try {
-    const response = await fetch("/Transaction.json"); // Update the path
+    const response = await fetch("/FinanceManagementPortal/Transaction.json"); // Update the path
     if (!response.ok) throw new Error("Failed to fetch transaction data");
     const data = await response.json();
     console.log("Fetched Transactions:", data);
